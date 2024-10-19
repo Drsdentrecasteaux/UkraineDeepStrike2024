@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Major Ukrainian Long Range Strikes Inside Russia, 2024</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
+    <style>
+        body {
+            font-family: "Montserrat", Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #ffffff;
+        }
+        .container-back {
+            margin: 0;
+            background-color: rgb(225, 225, 225);
+            padding: 20px;
+            left: 0;                            
+            right: 0;                           
+        }
+        .container {
+            max-width: 1700px;
+            margin: 0 auto;
+            background-color: rgb(255, 255, 255);
+            padding: 20px;
+            border-radius: 5px 5px 0 0;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #000000;
+            text-align: center;
+            font-size: 40px;
+            font-family: "Montserrat"
+        }
+        hr {
+            color: #000000;
+            width: 900px;
+        }
+        .description {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .description a {
+            color: black; 
+            font-weight: bold;
+            text-decoration: none;
+        }
+        .description a:hover {
+        text-decoration: underline; /* Optional: underline on hover for better UX */
+        }
+        .content-wrapper {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+        .table-container, .map-container {
+            width: 48%;
+        }
+        .table-container tbody tr:nth-of-type(even) {
+            background-color: #f3f3f3;
+        }
+        .table-container tbody tr:last-of-type{
+            border-bottom: 2px solid #0075ff
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            border-radius: 5px 5px 0 0;
+            overflow: hidden;
+        }
+        th {
+            padding: 8px;
+            text-align: center;
+            background-color: #0075ff;
+            color:#ffffff
+        }
+        td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #dddddd;
+        }
+        #map {
+            height: 387px;
+            width: 100%;
+            border-radius: 5px 5px 0 0;
+        }
+        h2 {
+            color: #000000;
+            text-align: center;
+        }
+        .slider-container {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+        }
+        .slider-image {
+            display: block;
+            width: 100%;
+        }
+        #afterImage {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .sources {
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <h1>MAJOR UKRAINIAN LONG RANGE STRIKES</h1>
+    <hr>
+    <h1>INSIDE RUSSIA 2024</h1>
+
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <div class="slider-container">
+        <img id="beforeImage" src="Tikhoretsk before cropped.png" alt="Before Satellite Imagery" class="slider-image">
+        <img id="afterImage" src="Tikhoretsk aftermath cropped.png" alt="After Satellite Imagery" class="slider-image">
+        <input type="range" id="slider" min="0" max="100" value="50">
+    </div>
+
+    <p class="sources">
+        <small><b>Sentinel-2</b> L2A (atmospherically corrected) true color composite, with additional short wave Infrared (SWIR) false color composite overlay to highlight fire hotspots caused by the ammunition explosion in Tikhoretsk. The image was taken on 11<sup>th</sup> & 21<sup>st</sup> of September to visualized before and during the attack. Original data credited from Copernicus Earth observation, programme of the European Union.</small>
+    </p>
+
+    <div class="container-back">
+
+        <div class="container">
+
+            <div class="content-wrapper">
+                <div class="table-container">
+                    <h2>Strike Details</h2>
+                    <table id="strikesTable">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Location</th>
+                                <th>Target Type</th>
+                                <th>Number of UAVs Involved</th>
+                                <th>Distance from Ukrainian Border</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>15<sup>th</sup> February</td>
+                                <td>Tuapse</td>
+                                <td>Oil refinery</td>
+                                <td>75</td>
+                                <td>260 km</td>
+                            </tr>
+                            <tr>
+                                <td>3<sup>rd</sup> April</td>
+                                <td>Novoshakhtinsk</td>
+                                <td>Oil refinery</td>
+                                <td>4</td>
+                                <td>10 km</td>
+                            </tr>
+                            <tr>
+                                <td>20<sup>th</sup> June</td>
+                                <td>Kotluban</td>
+                                <td>Ammunition depot</td>
+                                <td>120</td>
+                                <td>600 km</td>
+                            </tr>
+                            <tr>
+                                <td>12<sup>th</sup> August</td>
+                                <td>Toropets</td>
+                                <td>Ammunition depot</td>
+                                <td>100</td>
+                                <td>438 km</td>
+                            </tr>
+                            <tr>
+                                <td>21<sup>st</sup> September</td>
+                                <td>Tikhoretsk</td>
+                                <td>Ammunition depot & Airfield</td>
+                                <td>10</td>
+                                <td>150 km</td>
+                            </tr>
+                            <tr>
+                                <td>9<sup>th</sup> October</td>
+                                <td>Karachev</td>
+                                <td>Ammunition depot</td>
+                                <td>47</td>
+                                <td>114 km</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="map-container">
+                    <h2>Locations</h2>
+                    <div id="map"></div>
+                </div>
+            </div>
+
+            <p class="description">
+                <br>
+                <small>As its Western Allies dithered on its policy about long-range strikes in 2024, Ukraine has developed its domestic arsenal of long-range UAVs (Unmanned Aerial Vehicles) as kamikaze drones to attack targets deep inside Russia. They have attacked strategic sites & infrastructures as far as 1,500 kilometers beyond the Ukrainian border to distrupt Russia's war machine. The list only includes major strikes, which are just a few of the hundreds launched from 1st January 2024 until the present day. Original data credited to the</i>
+                    <a href="https://acleddata.com/europe-and-central-asia/#ro" target="_blank">Armed Conflict Location and Event Data</a>,  
+                    <a href="https://www.understandingwar.org/backgrounder/ukraine-conflict-updates" target="_blank">The Institute for the Study of War</a>, & 
+                    <a href="https://www.criticalthreats.org/" target="_blank">AEI's Critical Threats Project</a>.
+            </p>
+        </div>
+    </div>
+
+    <script>
+        var map = L.map('map').setView([52, 36], 4);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        var strikes = [
+            {name: "Tuapse", lat: 44.10769, lon: 39.10343},
+            {name: "Novoshakhtinsk", lat: 47.83285, lon: 39.85782},
+            {name: "Kotluban", lat: 48.99700, lon: 44.21508},
+            {name: "Toropets", lat: 56.50358, lon: 31.68818},
+            {name: "Tikhoretsk", lat: 45.8905, lon: 40.0463},
+            {name: "Karachev", lat: 53.1416, lon: 34.9540},
+        ];
+
+        strikes.forEach(function(strike) {
+            L.marker([strike.lat, strike.lon])
+                .addTo(map)
+                .bindPopup(strike.name);
+        });
+
+        var tableRows = document.querySelectorAll("#strikesTable tbody tr");
+        tableRows.forEach(function(row, index) {
+            row.addEventListener("click", function() {
+                var strike = strikes[index];
+                map.setView([strike.lat, strike.lon], 8);
+            });
+            row.style.cursor = "pointer";
+        });
+
+        var slider = document.getElementById("slider");
+        var beforeImage = document.getElementById("beforeImage");
+        var afterImage = document.getElementById("afterImage");
+
+        slider.oninput = function() {
+            var value = this.value;
+            afterImage.style.clipPath = `inset(0 ${100 - value}% 0 0)`;
+        };
+
+        afterImage.style.clipPath = "inset(0 50% 0 0)";
+    </script>
+</body>
+</html>
